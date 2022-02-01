@@ -9,5 +9,5 @@ move(per update)
 
 
 TODO----------------
-gravity
+gravity|
 multi update
