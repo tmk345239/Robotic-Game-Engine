@@ -11,6 +11,13 @@ var hitbox = {
   y: [],
   farX: [],
   farY: [],
+  xMove: [],
+  yMove: [],
+}
+
+//testing function
+function test(){
+  createBox();
 }
 
 //square render
@@ -23,10 +30,10 @@ function render(id){
   if(typeof hitbox.color[id] !== 'string'){
     switch(hitbox.prop[id]){
       default:
-        ctx.fillStyle = "black";
+        ctx.fillStyle = "grey";
         break;
       case 0:
-        ctx.fillStyle = "red";
+        ctx.fillStyle = "black";
         break;
       case 1:
         ctx.fillStyle = "yellow";
@@ -56,7 +63,7 @@ function hitCheck(hitID1, hitID2){
 }
 
 //Create hitbox
-function createBox(x, y, sizeX, sizeY, property, tag, color){
+function createBox(x, y, xMove, yMove, sizeX, sizeY, property, tag, color){
   if(tag === undefined || null){
     hitbox.tag.push(1);
   }else{
@@ -90,6 +97,16 @@ function createBox(x, y, sizeX, sizeY, property, tag, color){
   }
   hitbox.farX.push(x + sizeX);
   hitbox.farY.push(y + sizeY);
+  if(xMove === undefined || null){
+    hitbox.xMove.push(0);
+  }else{
+  hitbox.xMove.push(xMove);
+  }
+  if(yMove === undefined || null){
+    hitbox.yMove.push(0);
+  }else{
+  hitbox.yMove.push(yMove);
+  }
 }
 
 //delete Hitbox
@@ -103,5 +120,12 @@ function deleteHitbox(id){
   hitbox.y.splice(id,1);
   hitbox.farX.splice(id,1);
   hitbox.farY.splice(id,1);
+  hitbox.xMove.splice(id,1);
+  hitbox.yMove.splice(id,1);
 }
 
+//momentium update
+function move(id){
+  hitbox.x[id] += hitbox.xMove[id];
+  hitbox.y[id] += hitbox.yMove[id];
+}
