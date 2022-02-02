@@ -6,8 +6,9 @@ createBox()
 deleteHitbox()
 test(WIP)
 move(per update)
+update()
+momentium()
 
 
 TODO----------------
 gravity|
-move'|
