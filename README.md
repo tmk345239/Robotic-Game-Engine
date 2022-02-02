@@ -10,7 +10,4 @@ move(per update)
 
 TODO----------------
 gravity|
-multi update|
 move'|
-.hasMomentium|
-.hasGravity
