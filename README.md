@@ -8,7 +8,9 @@ test(WIP)
 move(per update)
 update()
 momentium()
+gravity()
 
 
 TODO----------------
-gravity|
+|arrow keys|
+|wasd movement|
