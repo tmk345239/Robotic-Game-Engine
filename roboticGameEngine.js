@@ -14,6 +14,8 @@ var hitbox = {
   farY: [],
   xMove: [],
   yMove: [],
+  hasMomentum: [],
+  hasGravity: [],
 }
 
 //testing function
@@ -65,7 +67,7 @@ function hitCheck(hitID1, hitID2){
 }
 
 //Create hitbox
-function createBox(x, y, xMove, yMove, sizeX, sizeY, property, tag, color){
+function createBox(x, y, xMove, yMove, sizeX, sizeY, property, tag, color, hasMomentum, hasGravity){
   if(tag === undefined || null){
     hitbox.tag.push(1);
   }else{
@@ -113,6 +115,16 @@ function createBox(x, y, xMove, yMove, sizeX, sizeY, property, tag, color){
   }else{
   hitbox.yMove.push(yMove);
   }
+  if(hasMomentum === undefined || null){
+    hitbox.hasMomentum.push(0);
+  }else{
+  hitbox.hasMomentum.push(hasMomentum);
+  }
+  if(yMove === undefined || null){
+    hitbox.hasGravity.push(0);
+  }else{
+  hitbox.hasGravity.push(hasGravity);
+  }
 }
 
 //delete Hitbox
@@ -128,10 +140,17 @@ function deleteHitbox(id){
   hitbox.farY.splice(id,1);
   hitbox.xMove.splice(id,1);
   hitbox.yMove.splice(id,1);
+  hitbox.hasGravity.splice(id,1);
+  hitbox.hasMomentum.splice(id,1);
 }
 
 //momentium update
 function move(id){
   hitbox.x[id] += hitbox.xMove[id];
   hitbox.y[id] += hitbox.yMove[id];
+}
+
+//universial updater
+function update(type){
+  
 }
