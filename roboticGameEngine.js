@@ -1,6 +1,7 @@
-const canvas = document.getElementsByTagName(canvas);
+const canvas = document.getElementById("id")
 var ctx = canvas.getContext("2d");
 canvas.focus();
+
 var hitbox = {
   tag: [],
   prop: [],
@@ -18,6 +19,7 @@ var hitbox = {
 //testing function
 function test(){
   createBox();
+  render(0)
 }
 
 //square render
@@ -30,7 +32,7 @@ function render(id){
   if(typeof hitbox.color[id] !== 'string'){
     switch(hitbox.prop[id]){
       default:
-        ctx.fillStyle = "grey";
+        ctx.fillStyle = "#424242";
         break;
       case 0:
         ctx.fillStyle = "black";
@@ -70,28 +72,32 @@ function createBox(x, y, xMove, yMove, sizeX, sizeY, property, tag, color){
   hitbox.tag.push(tag);
   }
   if(property === undefined || null){
-    hitbox.prop.push(1);
+    hitbox.prop.push(-1);
   }else{
   hitbox.prop.push(property);
   }
   hitbox.color.push(color);
   if(sizeX === undefined || null){
     hitbox.sizeX.push(50);
+    sizeX = 50;
   }else{
   hitbox.sizeX.push(sizeX);
   }
   if(sizeY === undefined || null){
     hitbox.sizeY.push(50);
+    sizeY = 50;
   }else{
   hitbox.sizeY.push(sizeY);
   }
   if(x === undefined || null){
-    hitbox.x.push(50)
+    hitbox.x.push(50);
+    x = 50;
   }else{
   hitbox.x.push(x);
   }
   if(y === undefined || null){
-    hitbox.y.push(50)
+    hitbox.y.push(50);
+    y = 50;
   }else{
   hitbox.y.push(y);
   }
