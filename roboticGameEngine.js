@@ -151,11 +151,12 @@ function move(id){
 }
 
 //universial updater
-function update(type){
+function update(gForce, airResist){
   for(var c=0; c < hitbox.tag.length; c++){
+      gravity(c, gForce);
+      momentium(c, airResist);
       move(c);
       render(c);
-      momentium(c);
     }
 }
 
@@ -171,11 +172,26 @@ function momentium(id, resist){
     if (hitbox.yMove[id] < 0){
       hitbox.yMove[id] = -hitbox.yMove[id];
     }
-    if (hitbox.yMove[id] >= resist){
+    if (hitbox.xMove[id] >= resist){
       hitbox.xMove[id] -= resist;
+    }else{
+      hitbox.xMove[id] = 0;
     }
     if (hitbox.yMove[id] >= resist){
       hitbox.yMove[id] -= resist;
+    }else{
+      hitbox.yMove[id] = 0;
     }
+  }
+}
+
+
+//gravity
+function gravity(id, force){
+  if (hitbox.hasGravity[id] == 1){
+    if (force === undefined || null){
+      force = 1;
+    }
+    hitbox.yMove[id] += force;
   }
 }
