@@ -152,5 +152,8 @@ function move(id){
 
 //universial updater
 function update(type){
-  
+  for(var c=0; c < hitbox.tag.length; c++){
+      move(c);
+      render(c);
+    }
 }
