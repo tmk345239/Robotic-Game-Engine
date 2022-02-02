@@ -155,5 +155,27 @@ function update(type){
   for(var c=0; c < hitbox.tag.length; c++){
       move(c);
       render(c);
+      momentium(c);
     }
+}
+
+//changeing momentium
+function momentium(id, resist){
+  if (hitbox.hasMomentium[id] == 1){
+    if (resist === undefined || null){
+      resist = 1;
+    }
+    if (hitbox.xMove[id] < 0){
+      hitbox.xMove[id] = -hitbox.xMove[id];
+    }
+    if (hitbox.yMove[id] < 0){
+      hitbox.yMove[id] = -hitbox.yMove[id];
+    }
+    if (hitbox.yMove[id] >= resist){
+      hitbox.xMove[id] -= resist;
+    }
+    if (hitbox.yMove[id] >= resist){
+      hitbox.yMove[id] -= resist;
+    }
+  }
 }
