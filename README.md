@@ -9,8 +9,7 @@ move(per update)
 update()
 momentium()
 gravity()
-
+despawn()
 
 TODO----------------
-|arrow keys|
-|wasd movement|
+cursor
