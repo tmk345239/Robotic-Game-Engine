@@ -1,6 +1,8 @@
 const canvas = document.getElementById("id")
-var ctx = canvas.getContext("2d");
+const ctx = canvas.getContext("2d");
 canvas.focus();
+const width = canvas.width;
+const height = canvas.height;
 canvas.addEventListener("onkeydown", keyAdd);
 canvas.addEventListener("onkeyup", keyRemove);
 
@@ -19,12 +21,13 @@ var hitbox = {
   yMove: [],
   hasMomentium: [],
   hasGravity: [],
+  despawn: [],
 }
 
 //testing function
 function test(){
   createBox();
-  render(0)
+  render(0);
 }
 
 //square render
@@ -70,7 +73,7 @@ function hitCheck(hitID1, hitID2){
 }
 
 //Create hitbox
-function createBox(x, y, xMove, yMove, sizeX, sizeY, property, tag, color, hasMomentium, hasGravity){
+function createBox(x, y, xMove, yMove, sizeX, sizeY, property, tag, color, hasMomentium, hasGravity, canDespawn){
   if(tag === undefined || null){
     hitbox.tag.push(1);
   }else{
@@ -119,14 +122,19 @@ function createBox(x, y, xMove, yMove, sizeX, sizeY, property, tag, color, hasMo
   hitbox.yMove.push(yMove);
   }
   if(hasMomentium === undefined || null){
-    hitbox.hasMomentium.push(0);
+    hitbox.hasMomentium.push(false);
   }else{
   hitbox.hasMomentium.push(hasMomentium);
   }
-  if(yMove === undefined || null){
-    hitbox.hasGravity.push(0);
+  if(hasGravity === undefined || null){
+    hitbox.hasGravity.push(false);
   }else{
   hitbox.hasGravity.push(hasGravity);
+  }
+  if(despawn === undefined || null){
+    hitbox.despawn.push(false);
+  }else{
+  hitbox.despawn.push(despawn);
   }
 }
 
@@ -145,6 +153,7 @@ function deleteHitbox(id){
   hitbox.yMove.splice(id,1);
   hitbox.hasGravity.splice(id,1);
   hitbox.hasMomentium.splice(id,1);
+  hitbox.despawn.splice(id,1);
 }
 
 //momentium update
@@ -165,9 +174,9 @@ function uniUpdate(gForce, airResist){
 
 //changeing momentium
 function momentium(id, resist){
-  if (hitbox.hasMomentium[id] == 1){
-    var xSign = 1;
-    var ySign = 1;
+  if (hitbox.hasMomentium[id] != false || 0){
+    let xSign = 1;
+    let ySign = 1;
     if (resist === undefined || null){
       resist = 1;
     }
@@ -212,7 +221,7 @@ function momentium(id, resist){
 
 //gravity
 function gravity(id, force){
-  if (hitbox.hasGravity[id] == 1){
+  if (hitbox.hasGravity[id] != false || 0){
     if (force === undefined || null){
       force = 1;
     }
@@ -220,7 +229,7 @@ function gravity(id, force){
   }
 }
 
-
+//update key list
 function keyAdd(event){
   keys.push(event);
 }
@@ -233,6 +242,23 @@ function keyRemove(event){
       done = true;
     }else{
       id++;
+    }
+  }
+}
+
+//despawn
+function despawn(id, buffer){
+  if (hitbox.despawn[id] != false || 0){
+    if (buffer === undefined || null){
+      buffer = 100;
+    }
+    hitbox.farX[id] = hitbox.x[id] + hitbox.sizeX[id]
+    hitbox.farY[id] = hitbox.y[id] + hitbox.sizeY[id]
+    if(hitbox.x[id] > width + buffer &&
+      hitbox.y[id] > height + buffer &&
+      -buffer > hitbox.farX[id] &&
+      -buffer > hitbox.farY[id]){
+      deleteHitbox(id);
     }
   }
 }
