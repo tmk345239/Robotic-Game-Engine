@@ -14,7 +14,7 @@ var hitbox = {
   farY: [],
   xMove: [],
   yMove: [],
-  hasMomentum: [],
+  hasMomentium: [],
   hasGravity: [],
 }
 
@@ -67,7 +67,7 @@ function hitCheck(hitID1, hitID2){
 }
 
 //Create hitbox
-function createBox(x, y, xMove, yMove, sizeX, sizeY, property, tag, color, hasMomentum, hasGravity){
+function createBox(x, y, xMove, yMove, sizeX, sizeY, property, tag, color, hasMomentium, hasGravity){
   if(tag === undefined || null){
     hitbox.tag.push(1);
   }else{
@@ -115,10 +115,10 @@ function createBox(x, y, xMove, yMove, sizeX, sizeY, property, tag, color, hasMo
   }else{
   hitbox.yMove.push(yMove);
   }
-  if(hasMomentum === undefined || null){
-    hitbox.hasMomentum.push(0);
+  if(hasMomentium === undefined || null){
+    hitbox.hasMomentium.push(0);
   }else{
-  hitbox.hasMomentum.push(hasMomentum);
+  hitbox.hasMomentium.push(hasMomentium);
   }
   if(yMove === undefined || null){
     hitbox.hasGravity.push(0);
@@ -141,7 +141,7 @@ function deleteHitbox(id){
   hitbox.xMove.splice(id,1);
   hitbox.yMove.splice(id,1);
   hitbox.hasGravity.splice(id,1);
-  hitbox.hasMomentum.splice(id,1);
+  hitbox.hasMomentium.splice(id,1);
 }
 
 //momentium update
@@ -151,36 +151,57 @@ function move(id){
 }
 
 //universial updater
-function update(gForce, airResist){
+function uniUpdate(gForce, airResist){
   for(var c=0; c < hitbox.tag.length; c++){
-      gravity(c, gForce);
-      momentium(c, airResist);
-      move(c);
-      render(c);
-    }
+    gravity(c, gForce);
+    momentium(c, airResist);
+    move(c);
+    render(c);
+  }
 }
 
 //changeing momentium
 function momentium(id, resist){
   if (hitbox.hasMomentium[id] == 1){
+    var xSign = 1;
+    var ySign = 1;
     if (resist === undefined || null){
       resist = 1;
     }
+    // if negative, invert
     if (hitbox.xMove[id] < 0){
-      hitbox.xMove[id] = -hitbox.xMove[id];
+      var xAbs = -hitbox.xMove[id];
+      xSign = -1;
+    }else{
+      xAbs = hitbox.xMove[id];
     }
     if (hitbox.yMove[id] < 0){
-      hitbox.yMove[id] = -hitbox.yMove[id];
-    }
-    if (hitbox.xMove[id] >= resist){
-      hitbox.xMove[id] -= resist;
+      var yAbs = -hitbox.yMove[id];
+      ySign = -1;
     }else{
-      hitbox.xMove[id] = 0;
+      yAbs = hitbox.yMove[id];
     }
-    if (hitbox.yMove[id] >= resist){
-      hitbox.yMove[id] -= resist;
+    //apply air resistance
+    if (xAbs >= resist){
+      xAbs -= resist;
     }else{
-      hitbox.yMove[id] = 0;
+      xAbs = 0;
+    }
+    if (yAbs >= resist){
+      yAbs -= resist;
+    }else{
+      yAbs = 0;
+    }
+    //apply change
+    if(xSign == -1){
+      hitbox.xMove[id] = -xAbs;
+    }else{
+      hitbox.xMove[id] = xAbs;
+    }
+    if(ySign == -1){
+      hitbox.yMove[id] = -yAbs;
+    }else{
+      hitbox.yMove[id] = yAbs;
     }
   }
 }
