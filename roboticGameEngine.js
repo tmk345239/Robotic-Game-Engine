@@ -1,7 +1,10 @@
 const canvas = document.getElementById("id")
 var ctx = canvas.getContext("2d");
 canvas.focus();
+canvas.addEventListener("onkeydown", keyAdd);
+canvas.addEventListener("onkeyup", keyRemove);
 
+var keys = [];
 var hitbox = {
   tag: [],
   prop: [],
@@ -214,5 +217,22 @@ function gravity(id, force){
       force = 1;
     }
     hitbox.yMove[id] += force;
+  }
+}
+
+
+function keyAdd(event){
+  keys.push(event);
+}
+
+function keyRemove(event){
+  let id = 0;
+  while(var done == false){
+    if(keys[id] == event){
+      keys.splice(id,1);
+      done = true;
+    }else{
+      id++;
+    }
   }
 }
