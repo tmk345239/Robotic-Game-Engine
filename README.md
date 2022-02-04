@@ -12,4 +12,6 @@ gravity()
 despawn()
 
 TODO----------------
-done for now :]
+circles|
+wall|
+save/load|
