@@ -5,9 +5,11 @@ const width = canvas.width;
 const height = canvas.height;
 canvas.addEventListener("onkeydown", keyAdd);
 canvas.addEventListener("onkeyup", keyRemove);
+canvas.addEventListener("onkeypress", keyPress);
 
 
 var keys = [];
+var keyList = [];
 var hitbox = {
   tag: [],
   prop: [],
@@ -179,11 +181,12 @@ function move(id){
 }
 
 //universial updater
-function uniUpdate(gForce, airResist){
+function uniUpdate(gForce, airResist, buffer){
   for(var c=0; c < hitbox.tag.length; c++){
     gravity(c, gForce);
     momentium(c, airResist);
     move(c);
+    despawn(c, buffer)
     render(c);
   }
 }
@@ -260,6 +263,10 @@ function keyRemove(event){
       id++;
     }
   }
+}
+
+function keyPress(event){
+  keyList.push(event);
 }
 
 //despawn
