@@ -15,3 +15,4 @@ TODO----------------
 circles|
 wall|
 save/load|
+devisibleBy|
