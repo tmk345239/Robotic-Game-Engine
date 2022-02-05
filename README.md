@@ -5,12 +5,13 @@ hitCheck()
 createBox()
 deleteHitbox()
 test(WIP)
-move(per update)
-update()
+move()
+uniUpdate()
 momentium()
 gravity()
-
+despawn()
 
 TODO----------------
-|arrow keys|
-|wasd movement|
+circles|
+wall|
+save/load|
