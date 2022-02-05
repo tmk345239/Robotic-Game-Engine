@@ -1,5 +1,3 @@
-var width = 900;
-var height = 500;
 var gForce = 1;
 var airResist = 1;
 function update(){

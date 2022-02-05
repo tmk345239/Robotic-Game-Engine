@@ -30,8 +30,10 @@ var cursor = {
   x: 0,
   y: 0,
 }
-canvas.addEventListener("mousemove", updateCursorPos(event)){
-  cursor = getMousePos(canvas, event){
+canvas.addEventListener("mousemove", updateCursorPos);
+function updateCursorPos(event){
+  cursor = getMousePos(canvas, event);
+  function getMousePos(canvas, event){
     var rect = canvas.getBoundingClientRect(),
       scaleX = canvas.width / rect.width,
       scaleY = canvas.height / rect.height;
@@ -40,6 +42,7 @@ canvas.addEventListener("mousemove", updateCursorPos(event)){
       y: (event.clientY - rect.top) * scaleY
     }
   }
+  console.log (cursor)
 }
 
 //testing function
@@ -255,7 +258,7 @@ function keyAdd(event){
 
 function keyRemove(event){
   let id = 0;
-  while(var done == false){
+  while(done == false){
     if(keys[id] == event){
       keys.splice(id,1);
       done = true;
