@@ -3,9 +3,12 @@ const ctx = canvas.getContext("2d");
 canvas.focus();
 const width = canvas.width;
 const height = canvas.height;
-canvas.addEventListener("onkeydown", keyAdd);
-canvas.addEventListener("onkeyup", keyRemove);
-canvas.addEventListener("onkeypress", keyPress);
+canvas.addEventListener("keydown", (event)=>{
+  keyAdd(event);
+});
+canvas.addEventListener("keyup", (event)=>{
+  keyRemove(event);
+});
 
 
 var keys = [];
@@ -42,7 +45,6 @@ function updateCursorPos(event){
       y: (event.clientY - rect.top) * scaleY
     }
   }
-  console.log (cursor)
 }
 
 //testing function
@@ -221,21 +223,27 @@ function momentium(id, resist){
     }else{
       xAbs = 0;
     }
-    if (yAbs >= resist){
-      yAbs -= resist;
-    }else{
-      yAbs = 0;
-    }
     //apply change
     if(xSign == -1){
       hitbox.xMove[id] = -xAbs;
     }else{
       hitbox.xMove[id] = xAbs;
     }
-    if(ySign == -1){
-      hitbox.yMove[id] = -yAbs;
-    }else{
-      hitbox.yMove[id] = yAbs;
+    //check for gravity
+
+    if(hitbox.hasGravity == false || 0){
+      if (yAbs >= resist){
+        yAbs -= resist;
+      }else{
+        yAbs = 0;
+      }
+
+      if(ySign == -1){
+        hitbox.yMove[id] = -yAbs;
+      }else{
+        hitbox.yMove[id] = yAbs;
+      }
+
     }
   }
 }
@@ -253,23 +261,21 @@ function gravity(id, force){
 
 //update key list
 function keyAdd(event){
-  keys.push(event);
+  keys.push(event.keyCode);
+  keyList.push(event.keyCode);
 }
 
 function keyRemove(event){
   let id = 0;
+  var done = false;
   while(done == false){
-    if(keys[id] == event){
+    if(keys[id] == event.keyCode){
       keys.splice(id,1);
       done = true;
     }else{
       id++;
     }
   }
-}
-
-function keyPress(event){
-  keyList.push(event);
 }
 
 //despawn
