@@ -4,10 +4,20 @@ canvas.focus();
 const width = canvas.width;
 const height = canvas.height;
 canvas.addEventListener("keydown", (event)=>{
-  keyAdd(event);
+  keys.push(event.keyCode);
+  keyList.push(event.keyCode);
 });
 canvas.addEventListener("keyup", (event)=>{
-  keyRemove(event);
+  let id = 0;
+  var done = false;
+  while(done == false){
+    if(keys[id] == event.keyCode){
+      keys.splice(id,1);
+      done = true;
+    }else{
+      id++;
+    }
+  }
 });
 
 
@@ -112,12 +122,20 @@ function createBox(x, y, xMove, yMove, sizeX, sizeY, property, tag, color, hasMo
     hitbox.sizeX.push(50);
     sizeX = 50;
   }else{
+    if(sizeX < 0){
+      sizeX = -sizeX;
+      x -= sizeX;
+    }
   hitbox.sizeX.push(sizeX);
   }
   if(sizeY === undefined || null){
     hitbox.sizeY.push(50);
     sizeY = 50;
   }else{
+    if(sizeY < 0){
+      sizeY = -sizeY;
+      y -= sizeY;
+    }
   hitbox.sizeY.push(sizeY);
   }
   if(x === undefined || null){
@@ -248,7 +266,6 @@ function momentium(id, resist){
   }
 }
 
-
 //gravity
 function gravity(id, force){
   if (hitbox.hasGravity[id] != false || 0){
@@ -256,25 +273,6 @@ function gravity(id, force){
       force = 1;
     }
     hitbox.yMove[id] += force;
-  }
-}
-
-//update key list
-function keyAdd(event){
-  keys.push(event.keyCode);
-  keyList.push(event.keyCode);
-}
-
-function keyRemove(event){
-  let id = 0;
-  var done = false;
-  while(done == false){
-    if(keys[id] == event.keyCode){
-      keys.splice(id,1);
-      done = true;
-    }else{
-      id++;
-    }
   }
 }
 
