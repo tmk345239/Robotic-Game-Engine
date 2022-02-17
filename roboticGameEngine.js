@@ -172,10 +172,10 @@ function createBox(x, y, xMove, yMove, sizeX, sizeY, property, tag, color, hasMo
   }else{
   hitbox.hasGravity.push(hasGravity);
   }
-  if(despawn === undefined || null){
+  if(canDespawn === undefined || null){
     hitbox.despawn.push(false);
   }else{
-  hitbox.despawn.push(despawn);
+  hitbox.despawn.push(canDespawn);
   }
 }
 
