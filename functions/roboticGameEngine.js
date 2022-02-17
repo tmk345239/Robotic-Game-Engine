@@ -203,17 +203,6 @@ function move(id){
   hitbox.y[id] += hitbox.yMove[id];
 }
 
-//universial updater
-function uniUpdate(gForce, airResist, buffer){
-  for(var c=0; c < hitbox.tag.length; c++){
-    gravity(c, gForce);
-    momentium(c, airResist);
-    move(c);
-    despawn(c, buffer)
-    render(c);
-  }
-}
-
 //changeing momentium
 function momentium(id, resist){
   if (hitbox.hasMomentium[id] != false || 0){
