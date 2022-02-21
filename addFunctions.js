@@ -1,13 +1,14 @@
-const folder = './functions/';
-var fs = require('fs');
-const script = document.createElement('script');
-var files = fs.readdirSync('./functions/');
+const folder = 'functions/';
+var files = [
+  "roboticGameEngine",
+  "uniUpdate",
+]
 
 console.log(files)
-fs.readdir(folder, (err, files) => {
-  files.forEach(file => {
-    script.src = folder + file;
-    document.head.append(script)
-    console.log(file);
-  });
+files.forEach(file => {
+  const script = document.createElement('script');
+  script.src = folder + file + ".js";
+  document.head.append(script);
+  script.setAttribute("defer", "defer");
+  console.log(file);
 });
