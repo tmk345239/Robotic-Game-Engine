@@ -1,7 +1,14 @@
 const folder = 'functions/';
 var files = [
   "createBox",
-  "roboticGameEngine",
+  "deleteHitbox",
+  "despawn",
+  "eventLisin",
+  "gravity",
+  "hitCheck",
+  "momentium",
+  "move",
+  "render",
   "uniUpdate",
 ]
 
