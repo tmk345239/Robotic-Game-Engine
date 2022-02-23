@@ -1,5 +1,6 @@
 const folder = 'functions/';
 var files = [
+  "createBox",
   "roboticGameEngine",
   "uniUpdate",
 ]
