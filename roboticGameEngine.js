@@ -27,7 +27,19 @@ var cursor = {
   x: 0,
   y: 0,
 }
-
+canvas.addEventListener("mousemove", updateCursorPos);
+function updateCursorPos(event){
+  cursor = getMousePos(canvas, event);
+  function getMousePos(canvas, event){
+    var rect = canvas.getBoundingClientRect(),
+      scaleX = canvas.width / rect.width,
+      scaleY = canvas.height / rect.height;
+    return {
+      x: (event.clientX - rect.left) * scaleX,
+      y: (event.clientY - rect.top) * scaleY
+    }
+  }
+}
 
 const script = document.createElement('script');
 script.src = "functions/addFunctions.js";
