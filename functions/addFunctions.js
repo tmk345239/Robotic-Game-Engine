@@ -18,5 +18,4 @@ files.forEach(file => {
   script.src = folder + file + ".js";
   document.head.append(script);
   script.setAttribute("defer", "defer");
-  console.log(file);
 });
