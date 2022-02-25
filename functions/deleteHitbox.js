@@ -1,5 +1,10 @@
 //delete Hitbox
 function deleteHitbox(id){
+  /*
+  hitbox.forEach(ele => {  to be tested
+    ele.splice(id,1);
+  });
+  */
   hitbox.tag.splice(id,1);
   hitbox.prop.splice(id,1);
   hitbox.color.splice(id,1);

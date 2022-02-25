@@ -1,73 +1,114 @@
 //Create hitbox
-function createBox(x, y, xMove, yMove, sizeX, sizeY, property, tag, color, hasMomentium, hasGravity, canDespawn){
-    if(tag === undefined || null){
+/*
+create hitbox{
+  var:default
+  x:50
+  y:50
+  xMove:0
+  yMove:0
+  sizeX:50
+  sizeY:50
+  property:-1
+  tag:1
+  color:
+  hasMomentium:false
+  hasGravity:false
+  canDespawn:false
+}
+*/
+function createBox(boxObj){
+
+  //tag
+    if(boxObj.tag === undefined || null){
       hitbox.tag.push(1);
     }else{
-    hitbox.tag.push(tag);
+    hitbox.tag.push(boxObj.tag);
     }
-    if(property === undefined || null){
+
+    //property
+    if(boxObj.property === undefined || null){
       hitbox.prop.push(-1);
     }else{
-    hitbox.prop.push(property);
+    hitbox.prop.push(boxObj.property);
     }
-    hitbox.color.push(color);
-    if(sizeX === undefined || null){
+    hitbox.color.push(boxObj.color);
+
+    //sizeX
+    if(boxObj.sizeX === undefined || null){
       hitbox.sizeX.push(50);
-      sizeX = 50;
+      boxObj.sizeX = 50;
     }else{
-      if(sizeX < 0){
-        sizeX = -sizeX;
-        x -= sizeX;
+      if(boxObj.sizeX < 0){
+        boxObj.sizeX = -boxObj.sizeX;
+        x -= boxObj.sizeX;
       }
-    hitbox.sizeX.push(sizeX);
+    hitbox.sizeX.push(boxObj.sizeX);
     }
-    if(sizeY === undefined || null){
+
+    //sizeY
+    if(boxObj.sizeY === undefined || null){
       hitbox.sizeY.push(50);
-      sizeY = 50;
+      boxObj.sizeY = 50;
     }else{
-      if(sizeY < 0){
-        sizeY = -sizeY;
-        y -= sizeY;
+      if(boxObj.sizeY < 0){
+        boxObj.sizeY = -boxObj.sizeY;
+        y -= boxObj.sizeY;
       }
-    hitbox.sizeY.push(sizeY);
+    hitbox.sizeY.push(boxObj.sizeY);
     }
-    if(x === undefined || null){
+
+    //x
+    if(boxObj.x === undefined || null){
       hitbox.x.push(50);
-      x = 50;
+      boxObj.x = 50;
     }else{
-    hitbox.x.push(x);
+    hitbox.x.push(boxObj.x);
     }
-    if(y === undefined || null){
+
+    //y
+    if(boxObj.y === undefined || null){
       hitbox.y.push(50);
-      y = 50;
+      boxObj.y = 50;
     }else{
-    hitbox.y.push(y);
+    hitbox.y.push(boxObj.y);
     }
-    hitbox.farX.push(x + sizeX);
-    hitbox.farY.push(y + sizeY);
-    if(xMove === undefined || null){
+
+    //far values
+    hitbox.farX.push(boxObj.x + boxObj.sizeX);
+    hitbox.farY.push(boxObj.y + boxObj.sizeY);
+
+    //xMove
+    if(boxObj.xMove === undefined || null){
       hitbox.xMove.push(0);
     }else{
-    hitbox.xMove.push(xMove);
+    hitbox.xMove.push(boxObj.xMove);
     }
-    if(yMove === undefined || null){
+
+    //yMove
+    if(boxObj.yMove === undefined || null){
       hitbox.yMove.push(0);
     }else{
-    hitbox.yMove.push(yMove);
+    hitbox.yMove.push(boxObj.yMove);
     }
-    if(hasMomentium === undefined || null){
+
+    //hasMomentium
+    if(boxObj.hasMomentium === undefined || null){
       hitbox.hasMomentium.push(false);
     }else{
-    hitbox.hasMomentium.push(hasMomentium);
+    hitbox.hasMomentium.push(boxObj.hasMomentium);
     }
-    if(hasGravity === undefined || null){
+
+    //hasGravity
+    if(boxObj.hasGravity === undefined || null){
       hitbox.hasGravity.push(false);
     }else{
-    hitbox.hasGravity.push(hasGravity);
+    hitbox.hasGravity.push(boxObj.hasGravity);
     }
-    if(canDespawn === undefined || null){
+
+    //canDespawn
+    if(boxObj.canDespawn === undefined || null){
       hitbox.despawn.push(false);
     }else{
-    hitbox.despawn.push(canDespawn);
+    hitbox.despawn.push(boxObj.canDespawn);
     }
   }

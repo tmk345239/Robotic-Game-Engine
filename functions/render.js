@@ -1,12 +1,7 @@
 //square render
 function render(id){
-  if(id == "all"){
-    for(var c=0; c < hitbox.tag.length; c++){
-      render(c);
-    }
-  }
   if(typeof hitbox.color[id] !== 'string'){
-    switch(hitbox.prop[id]){
+    switch(hitbox.color[id]){
       default:
         ctx.fillStyle = "#424242";
         break;
