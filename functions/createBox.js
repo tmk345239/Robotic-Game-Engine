@@ -10,13 +10,20 @@ create hitbox{
   sizeY:50
   property:-1
   tag:1
-  color:
+  layer:0
+  color:0
   hasMomentium:false
   hasGravity:false
   canDespawn:false
 }
 */
 function createBox(boxObj){
+
+  /*to be tested
+  boxObj.forEach(e => {
+    console.log(e);
+  });
+  */
 
   //tag
     if(boxObj.tag === undefined || null){
@@ -31,7 +38,20 @@ function createBox(boxObj){
     }else{
     hitbox.prop.push(boxObj.property);
     }
+
+    //layer
+    if(boxObj.layer === undefined || null){
+      hitbox.layer.push(0);
+    }else{
+    hitbox.layer.push(boxObj.layer);
+    }
+
+    //color
+    if(boxObj.color === undefined || null){
+      hitbox.color.push(0);
+    }else{
     hitbox.color.push(boxObj.color);
+    }
 
     //sizeX
     if(boxObj.sizeX === undefined || null){
