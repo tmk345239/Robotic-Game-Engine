@@ -32,7 +32,11 @@ var base = {
 
 function createBox(boxObj){
   var ele;
-  //for (const property in object) to be tested
+  /*for (const property in base){
+    console.log(base[property]);
+  } to be tested
+  
+  */
   for(var at = 0; at < atts.length; at++){
     ele = atts[at];
     if(boxObj.ele === undefined || null){
