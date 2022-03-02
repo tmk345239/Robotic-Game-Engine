@@ -8,21 +8,21 @@ const height = canvas.height;
 var keys = [];
 var keyList = [];
 var hitbox = {
-  tag: [],
-  prop: [],
-  color: [],
-  sizeX: [],
-  sizeY: [],
-  x: [],
-  y: [],
-  farX: [],
-  farY: [],
-  xMove: [],
-  yMove: [],
-  hasMomentium: [],
-  hasGravity: [],
-  despawn: [],
+  x:[],
+  y:[],
+  xMove:[],
+  yMove:[],
+  sizeX:[],
+  sizeY:[],
+  property:[],
+  tag:[],
+  layer:[],
+  color:[],
+  hasMomentium:[],
+  hasGravity:[],
+  canDespawn:[],
 }
+
 var cursor = {
   x: 0,
   y: 0,

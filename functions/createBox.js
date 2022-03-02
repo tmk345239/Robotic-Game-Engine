@@ -1,29 +1,46 @@
 //Create hitbox
-/*
-create hitbox{
-  var:default
-  x:50
-  y:50
-  xMove:0
-  yMove:0
-  sizeX:50
-  sizeY:50
-  property:-1
-  tag:1
-  layer:0
-  color:0
-  hasMomentium:false
-  hasGravity:false
-  canDespawn:false
+var atts = [
+  "x",//50,
+  "y",//50,
+  "xMove",//0,
+  "yMove",//0,
+  "sizeX",//:50,
+  "sizeY",//:50,
+  "property",//:-1,
+  "tag",//:1,
+  "layer",//:0,
+  "color",//:0,
+  "hasMomentium",//:false,
+  "hasGravity",//:false,
+  "canDespawn",//:false,
+]
+var base = {
+  x:50,
+  y:50,
+  xMove:0,
+  yMove:0,
+  sizeX:50,
+  sizeY:50,
+  property:-1,
+  tag:1,
+  layer:0,
+  color:0,
+  hasMomentium:false,
+  hasGravity:false,
+  canDespawn:false,
 }
-*/
-function createBox(boxObj){
 
-  /*to be tested
-  boxObj.forEach(e => {
-    console.log(e);
-  });
-  */
+function createBox(boxObj){
+  var ele;
+  for(var at = 0; at < atts.length; at++){
+    ele = atts[at];
+    if(boxObj.ele === undefined || null){
+      boxObj.ele == base.ele;
+    }
+    console.log(ele);
+    hitbox.ele.push(boxObj.ele);
+  };
+  /*
 
   //tag
     if(boxObj.tag === undefined || null){
@@ -131,4 +148,5 @@ function createBox(boxObj){
     }else{
     hitbox.despawn.push(boxObj.canDespawn);
     }
+    */
   }
