@@ -34,5 +34,5 @@ var cursor = {
 
 const script = document.createElement('script');
 script.src = "functions/addFunctions.js";
-document.head.append(script);
+document.head.prepend(script);
 script.setAttribute("defer", "defer");
