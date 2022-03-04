@@ -10,6 +10,7 @@ var files = [
   "move",
   "render",
   "uniUpdate",
+  "rta",
 ]
 
 console.log(files)
