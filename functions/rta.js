@@ -14,9 +14,8 @@ function rta(type, rotate_or_x, speed_or_y){
                 yMove: 0,
             }
             r = r * Math.PI / 180;
-            console.log(Math.acos(r))
-            output.xMove = s * Math.acos(r);
-            output.yMove = s * Math.asin(r);
+            output.xMove = s * Math.cos(r);
+            output.yMove = s * Math.sin(r);
             output.yMove = -output.yMove;
 
             return(output);
@@ -29,7 +28,7 @@ function rta(type, rotate_or_x, speed_or_y){
                 angle: 0,
                 speed: 0,
             }
-            output.angle = Math.tan(y/x);
+            output.angle = Math.atan(y/x);
             output.angle = output.angle * 180 / Math.PI;
             x = x * x
             y = y * y
