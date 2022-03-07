@@ -32,6 +32,15 @@ var cursor = {
   y: 0,
 }
 
+/*still testing
+var scr = document.scripts;
+for (const file in scr){
+  if (file.src != "roboticGameEngine.js" || undefined){
+    file.remove();
+  }
+}
+*/
+
 const script = document.createElement('script');
 script.src = "functions/addFunctions.js";
 document.head.prepend(script);
