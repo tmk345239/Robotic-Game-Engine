@@ -32,14 +32,34 @@ var cursor = {
   y: 0,
 }
 
-/*still testing
+var files = {
+  functions:{
+    createBox:".js",
+    deleteHitbox:".js",
+    despawn:".js",
+    eventLisin:".js",
+    gravity:".js",
+    hitCheck:".js",
+    momentium:".js",
+    move:".js",
+    render:".js",
+    uniUpdate:".js",
+    rta:".js",
+  },
+}
 var scr = document.scripts;
 for (const file in scr){
-  if (file.src != "roboticGameEngine.js" || undefined){
-    file.remove();
+  if (scr[file].src != "roboticGameEngine.js" || undefined){
+    var res = scr[file].src//removed element's source
+    scr[file].remove();
+    //add res to files
+    var L = res.length;
+    var pos = res.indexOf(".");
+    var typ = res.slice(pos, L);
+    var fle = res.slice(0, pos);
+    files[fle] = typ;
   }
 }
-*/
 
 const script = document.createElement('script');
 script.src = "functions/addFunctions.js";
