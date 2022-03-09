@@ -1,22 +1,18 @@
-const folder = 'functions/';
-var files = [
-  "createBox",
-  "deleteHitbox",
-  "despawn",
-  "eventLisin",
-  "gravity",
-  "hitCheck",
-  "momentium",
-  "move",
-  "render",
-  "uniUpdate",
-]
+var path = []
 
-console.log(files)
-files.forEach(file => {
-  const script = document.createElement('script');
-  script.src = folder + file + ".js";
-  document.head.append(script);
-  script.setAttribute("defer", "defer");
-  console.log(file);
-});
+
+function addFolder(folder){
+  for (const file in folder){
+    if(Array.isArray(folder[file])){
+      path.push(folder + "/");//need to test output
+      addFolder(folder[file]);
+    }else{
+      const script = document.createElement('script');
+      script.src = path.join + file + folder[file];
+      document.head.prepend(script);
+      script.setAttribute("defer", "defer");
+    }
+  };
+  var last = path.length - 1;
+  path.splice(last,1);
+}
