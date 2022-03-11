@@ -22,6 +22,8 @@ var base = {//hitbox vars & their defaults
   hasMomentium:false,
   hasGravity:false,
   canDespawn:false,
+  stopMove:false,
+  intangible:false,
 }
 for (const prop in base){
   hitbox[prop] = [];
