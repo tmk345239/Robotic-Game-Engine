@@ -3,7 +3,7 @@
 function rta(type, rotate_or_x, speed_or_y){
     switch(type){
         default:
-            return "0:Rotation to Axis, 1:Axis to Rotation";
+            return "0:Degrees to Axis, 1:Axis to Degrees";
         break;
         case 0:
             var r = rotate_or_x;

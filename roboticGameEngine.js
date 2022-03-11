@@ -36,17 +36,28 @@ var cursor = {
 
 var files = {
   functions:{
-    createBox:".js",
-    deleteHitbox:".js",
-    despawn:".js",
-    eventLisin:".js",
-    gravity:".js",
-    hitCheck:".js",
-    momentium:".js",
-    move:".js",
-    render:".js",
-    uniUpdate:".js",
-    rta:".js",
+    collision:{
+      hitCheck:".js",
+      hitDir:".js",
+    },
+    movements:{
+      gravity:".js",
+      momentium:".js",
+      move:".js",
+    },
+    objects:{
+      createBox:".js",
+      deleteHitbox:".js",
+      despawn:".js",
+    },
+    system:{
+      eventLisin:".js",
+      render:".js",
+      uniUpdate:".js",
+    },
+    math:{
+      rta:".js",
+    },
   },
 }
 var scr = document.scripts;
