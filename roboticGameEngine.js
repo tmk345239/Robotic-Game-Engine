@@ -39,6 +39,7 @@ var files = {
     collision:{
       hitCheck:".js",
       hitDir:".js",
+      lineCheck:".js",
     },
     movements:{
       gravity:".js",

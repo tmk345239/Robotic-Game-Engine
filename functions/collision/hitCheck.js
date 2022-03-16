@@ -12,4 +12,4 @@ function hitCheck(hitID1, hitID2){
     }else{
       return "true";
     }
-  }
+}
