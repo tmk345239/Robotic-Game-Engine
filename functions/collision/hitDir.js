@@ -1,9 +1,6 @@
 function hitDir(id1, id2){
-    var dir = 0;//0:up,1;down,2;left,3:right
-    var output = {
-        direction:"none",//can be: up, down, left, or right
-        distance:0,//distance in pixles, alwas positive
-    }
+    var output = "none";//can be: up, down, left, or right
+
     var hitList = []//list of hit directions
     hitbox.farX[id1] = hitbox.x[id1] + hitbox.sizeX[id1]//--\
     hitbox.farY[id1] = hitbox.y[id1] + hitbox.sizeY[id1]//   \update far cords.
@@ -70,6 +67,26 @@ function hitDir(id1, id2){
             output == "none";
             break;
         case 1:
-            
+            output == hitList[0];
+            break;
+        case 2:
+            //
+            break;
+        case 3:
+            if(hitList[1] == "down"){
+                if(hitList[2] == "left"){
+                    output == "left";
+                }else{
+                    output == "right";
+                }
+            }else{
+                if(hitList[0] == "up"){
+                    output == "up";
+                }else{
+                    output == "down";
+                }
+            }
+            break;
     }
+    return(output);
 }

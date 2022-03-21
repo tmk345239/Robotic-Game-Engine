@@ -40,6 +40,7 @@ var files = {
       hitCheck:".js",
       hitDir:".js",
       lineCheck:".js",
+      sideCheck:".js",
     },
     movements:{
       gravity:".js",
