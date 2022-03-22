@@ -5,9 +5,9 @@ function sideCheck(id1, id2, side){
     switch(side){
     case "up":
         var obj = {
-        x:id1.x,
-        y:id1.y,
-        size:id1.sizeX,
+        x:id1.x + 1,
+        y:id1.y - 1,
+        size:id1.sizeX - 2,
         dir:"x",
       }
       if(lineCheck(id2, obj)){
@@ -18,9 +18,9 @@ function sideCheck(id1, id2, side){
       break;
       case "down":
       var obj = {
-          x:id1.x,
-          y:id1.farY,
-          size:id1.sizeX,
+          x:id1.x + 1,
+          y:id1.farY + 1,
+          size:id1.sizeX - 2,
           dir:"x",
         }
         if(lineCheck(id2, obj)){
@@ -31,9 +31,9 @@ function sideCheck(id1, id2, side){
         break;
         case "left":
       var obj = {
-          x:id1.x,
-          y:id1.y,
-          size:id1.sizeY,
+          x:id1.x - 1,
+          y:id1.y + 1,
+          size:id1.sizeY - 2,
           dir:"y",
         }
         if(lineCheck(id2, obj)){
@@ -44,9 +44,9 @@ function sideCheck(id1, id2, side){
         break;
       case "right":
       var obj = {
-          x:id1.farX,
-          y:id1.y,
-          size:id1.sizeY,
+          x:id1.farX + 1,
+          y:id1.y + 1,
+          size:id1.sizeY - 2,
           dir:"y",
         }
         if(lineCheck(id2, obj)){

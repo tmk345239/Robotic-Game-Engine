@@ -30,7 +30,7 @@ function hitDir(id1, id2){
       dir:"x",
     }
     if(lineCheck(id2, obj)){
-        hitList.push("up");
+        hitList.push("top");
     }
     //down
     var obj = {
@@ -40,7 +40,7 @@ function hitDir(id1, id2){
         dir:"x",
       }
       if(lineCheck(id2, obj)){
-          hitList.push("down");
+          hitList.push("bottom");
       }
     //left
     var obj = {
@@ -70,17 +70,17 @@ function hitDir(id1, id2){
             output == hitList[0];
             break;
         case 2:
-            //
+            output == hitList;
             break;
         case 3:
-            if(hitList[1] == "down"){
+            if(hitList[1] == "bottom"){
                 if(hitList[2] == "left"){
                     output == "left";
                 }else{
                     output == "right";
                 }
             }else{
-                if(hitList[0] == "up"){
+                if(hitList[0] == "top"){
                     output == "up";
                 }else{
                     output == "down";
