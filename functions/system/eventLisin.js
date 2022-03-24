@@ -29,3 +29,7 @@ function updateCursorPos(event){
     }
   }
 }
+
+document.getElementsByClassName("FSb").addEventListener("click", () => {
+  canvas.requestFullscreen();
+})

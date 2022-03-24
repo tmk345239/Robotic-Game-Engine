@@ -1,9 +1,12 @@
 const canvas = document.getElementById("id")
 const ctx = canvas.getContext("2d");
 canvas.focus();
-const width = canvas.width;
-const height = canvas.height;
+const width = 1920;
+const height = 1080;
 
+//setting the window size of the canvas
+canvas.width = width;
+canvas.height = height;
 
 var keys = [];
 var keyList = [];
