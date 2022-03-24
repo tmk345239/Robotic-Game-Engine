@@ -2,7 +2,6 @@
 function move(id){
     if(hitbox.intangible[id] == false){//check for tangability
 
-        //better method is to check shortest distance out of coliding object.
 
         hitbox.x[id] += hitbox.xMove[id];
         for (var id2=0; id2 < hitbox.tag.length; id2++){//check if x hit
