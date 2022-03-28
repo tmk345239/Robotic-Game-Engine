@@ -67,7 +67,7 @@ var files = {
 }
 var scr = document.scripts;
 for (const file in scr){
-  if (scr[file].src != "roboticGameEngine.js" || undefined){
+  if (scr[file].src != "roboticGameEngine.js" || scr[file].src != undefined){
     var res = scr[file].src//removed element's source
     scr[file].remove();
     //add res to files
