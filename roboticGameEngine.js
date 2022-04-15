@@ -65,19 +65,6 @@ var files = {
     },
   },
 }
-var scr = document.scripts;
-for (const file in scr){
-  if (scr[file].src != "roboticGameEngine.js" || scr[file].src != undefined){
-    var res = scr[file].src//removed element's source
-    scr[file].remove();
-    //add res to files
-    var L = res.length;
-    var pos = res.indexOf(".");
-    var typ = res.slice(pos, L);
-    var fle = res.slice(0, pos);
-    files[fle] = typ;
-  }
-}
 
 const script = document.createElement('script');
 script.src = "functions/addFunctions.js";
