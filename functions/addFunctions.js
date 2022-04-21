@@ -1,8 +1,4 @@
 var path = []
-const scripta = document.createElement('script');
-scripta.src = "functions/system/unloadAddedCode.js";
-document.head.prepend(scripta);
-scripta.setAttribute("defer", "defer");
 
 function addFolder(folder){
   for (const file in folder){
@@ -20,3 +16,16 @@ function addFolder(folder){
   path.splice(last,1);
 }
 addFolder(files.functions);
+
+
+var scr = document.scripts;
+for (const file in scr){
+    var temp = true;
+    if (temp){
+      temp = false;
+      console.log(scr[file].getAttribute("defer"));
+    }
+    if (scr[file].getAttribute("defer") == null || undefined){
+      scr[file].defer = "defer";
+    }
+  }
