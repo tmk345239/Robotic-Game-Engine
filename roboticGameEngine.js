@@ -39,28 +39,34 @@ var cursor = {
 
 var files = {
   functions:{
+    name:"functions",
     collision:{
+      name:"collision",
       hitCheck:".js",
       hitDir:".js",
       lineCheck:".js",
       sideCheck:".js",
     },
     movements:{
+      name:"movements",
       gravity:".js",
       momentium:".js",
       move:".js",
     },
     objects:{
+      name:"objects",
       createBox:".js",
       deleteHitbox:".js",
       despawn:".js",
     },
     system:{
+      name:"system",
       eventLisin:".js",
       render:".js",
       uniUpdate:".js",
     },
     math:{
+      name:"math",
       rta:".js",
     },
   },
