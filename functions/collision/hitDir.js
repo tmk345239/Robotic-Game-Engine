@@ -1,4 +1,4 @@
-function hitDir(id1, id2){
+export function hitDir(id1, id2){
     var output = "none";//can be: up, down, left, or right
 
     var hitList = []//list of hit directions

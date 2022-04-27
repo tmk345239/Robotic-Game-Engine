@@ -1,4 +1,4 @@
-function lineCheck(id, obj){
+export function lineCheck(id, obj){
   /*
   var obj = {
     x:0,

@@ -1,17 +1,17 @@
-const canvas = document.getElementById("id")
-const ctx = canvas.getContext("2d");
+export const canvas = document.getElementById("id")
+export const ctx = canvas.getContext("2d");
 canvas.focus();
-const width = 1920;
-const height = 1080;
+export const width = 1920;
+export const height = 1080;
 
 //setting the window size of the canvas
 canvas.width = width;
 canvas.height = height;
 
-var keys = [];
-var keyList = [];
-var hitbox = {};
-var base = {//hitbox vars & their defaults
+export var keys = [];
+export var keyList = [];
+export var hitbox = {};
+export var base = {//hitbox vars & their defaults
   x:50,
   y:50,
   xMove:0,
@@ -32,47 +32,11 @@ for (const prop in base){
   hitbox[prop] = [];
 }
 
-var cursor = {
+export var cursor = {
   x: 0,
   y: 0,
 }
 
-var files = {
-  functions:{
-    name:"functions",
-    collision:{
-      name:"collision",
-      hitCheck:".js",
-      hitDir:".js",
-      lineCheck:".js",
-      sideCheck:".js",
-    },
-    movements:{
-      name:"movements",
-      gravity:".js",
-      momentium:".js",
-      move:".js",
-    },
-    objects:{
-      name:"objects",
-      createBox:".js",
-      deleteHitbox:".js",
-      despawn:".js",
-    },
-    system:{
-      name:"system",
-      eventLisin:".js",
-      render:".js",
-      uniUpdate:".js",
-    },
-    math:{
-      name:"math",
-      rta:".js",
-    },
-  },
-}
 
-const script = document.createElement('script');
-script.src = "functions/addFunctions.js";
-document.head.prepend(script);
-script.setAttribute("defer", "defer");
+import * as func from "/functions/addFunctions.js";//import function
+//rename imported functions

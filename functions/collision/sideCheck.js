@@ -1,4 +1,4 @@
-function sideCheck(id1, id2, side){
+export function sideCheck(id1, id2, side){
     hitbox.farX[id1] = hitbox.x[id1] + hitbox.sizeX[id1];
     hitbox.farY[id1] = hitbox.y[id1] + hitbox.sizeY[id1];
 
