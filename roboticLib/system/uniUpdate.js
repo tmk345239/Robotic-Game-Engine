@@ -1,5 +1,11 @@
 //universial updater
-function uniUpdate(gForce, airResist, buffer){
+import { hitbox } from "../../roboticGameEngine.js"
+import { gravity } from "../movements/gravity.js"
+import { momentium } from "../movements/momentium.js"
+import { move } from "../movements/move.js"
+import { despawn } from "../objects/despawn.js"
+import { render } from "./render.js"
+export function uniUpdate(gForce, airResist, buffer){
   var maxLay = 2;
   for(var c=0; c < hitbox.layer.length; c++){//set max layer value
     if(hitbox.layer[c] > maxLay){

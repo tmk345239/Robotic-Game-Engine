@@ -1,5 +1,6 @@
 //changeing momentium
-function momentium(id, resist){
+import { hitbox } from "../../roboticGameEngine.js"
+export function momentium(id, resist){
     if (hitbox.hasMomentium[id] != false || 0){
       let xSign = 1;
       let ySign = 1;

@@ -1,6 +1,8 @@
 //Create hitbox
-
-function createBox(boxObj){
+import { hitbox } from "../../roboticGameEngine.js"
+import { boxObj } from "../../roboticGameEngine.js"
+import { base } from "../../roboticGameEngine.js"
+export function createBox(boxObj){
   if(boxObj == undefined){
     boxObj = base;
   }
