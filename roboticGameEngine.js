@@ -10,7 +10,9 @@ canvas.height = height;
 
 export var keys = [];
 export var keyList = [];
-export var hitbox = {};
+export var hitbox = {
+  test:true,
+};
 export var base = {//hitbox vars & their defaults
   x:50,
   y:50,
@@ -38,5 +40,5 @@ export var cursor = {
 }
 
 
-import * as func from "/functions/addFunctions.js";//import function
+export * as func from "./functions/addFunctions.js";//import function
 //rename imported functions
