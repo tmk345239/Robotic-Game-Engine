@@ -1,23 +1,23 @@
 # Robotic-Game-Engine
 
-### Curently a Libary with Asperations
+##### *Curently a Libary with Asperations*
 
-features
+Features
 ------------
 
-render()  
-hitCheck()  
-createBox()  
-deleteHitbox()  
-move()  
-uniUpdate()  
-momentium()  
-gravity()  
-despawn()  
+-render()  
+-hitCheck()  
+-createBox()  
+-deleteHitbox()  
+-move()  
+-uniUpdate()  
+-momentium()  
+-gravity()  
+-despawn()  
 
-TODO
+Todo
 -----------
 
-circles  
-save/load  
-devisibleBy  
+-circles  
+-save/load  
+-devisibleBy  
