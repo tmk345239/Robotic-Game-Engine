@@ -1,6 +1,6 @@
 //RTA: Rotation To Axis
 
-function rta(type, rotate_or_x, speed_or_y){
+export function rta(type, rotate_or_x, speed_or_y){
     switch(type){
         default:
             return "0:Degrees to Axis, 1:Axis to Degrees";

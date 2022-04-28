@@ -1,5 +1,7 @@
 //motion update
-function move(id){
+import { hitbox } from "../../roboticGameEngine.js"
+import { hitCheck } from "../collision/hitCheck.js"
+export function move(id){
     if(hitbox.intangible[id] == false){//check for tangability
 
 

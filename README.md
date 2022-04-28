@@ -1,17 +1,23 @@
 # Robotic-Game-Engine
-features------------
-render()
-hitCheck()
-createBox()
-deleteHitbox()
-move()
-uniUpdate()
-momentium()
-gravity()
-despawn()
 
-TODO----------------
-circles|
-wall|
-save/load|
-devisibleBy|
+### Curently a Libary with Asperations
+
+features
+------------
+
+render()  
+hitCheck()  
+createBox()  
+deleteHitbox()  
+move()  
+uniUpdate()  
+momentium()  
+gravity()  
+despawn()  
+
+TODO
+-----------
+
+circles  
+save/load  
+devisibleBy  

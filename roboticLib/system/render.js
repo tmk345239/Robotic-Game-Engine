@@ -1,5 +1,6 @@
 //square render
-function render(id){
+import { hitbox } from "../../roboticGameEngine.js"
+export function render(id){
     switch(hitbox.color[id]){
       default:
         ctx.fillStyle = hitbox.color[id];

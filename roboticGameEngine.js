@@ -40,5 +40,5 @@ export var cursor = {
 }
 
 
-export * as func from "./functions/addFunctions.js";//import function
+export * as func from "./roboticLib/roboticLib.js";//import function
 //rename imported functions

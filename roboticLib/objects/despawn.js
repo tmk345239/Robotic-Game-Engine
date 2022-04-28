@@ -1,5 +1,6 @@
 //despawn
-function despawn(id, buffer){
+import { hitbox } from "../../roboticGameEngine.js"
+export function despawn(id, buffer){
     if (hitbox.despawn[id] != false || 0){
       if (buffer === undefined || null){
         buffer = 100;
