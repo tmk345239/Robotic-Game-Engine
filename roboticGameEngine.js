@@ -11,7 +11,6 @@ canvas.height = height;
 export var keys = [];
 export var keyList = [];
 export var hitbox = {
-  test:true,
 };
 export var base = {//hitbox vars & their defaults
   x:50,
@@ -29,6 +28,13 @@ export var base = {//hitbox vars & their defaults
   canDespawn:false,
   stopMove:false,
   intangible:false,
+
+  //child vars
+  parent:null,
+  xRel:50,
+  yRel:50,
+  xMoveRel:0,
+  yMoveRel:0,
 }
 for (const prop in base){
   hitbox[prop] = [];
