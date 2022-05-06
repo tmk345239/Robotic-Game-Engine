@@ -1,3 +1,4 @@
+export function eLisin() {
 canvas.addEventListener("keydown", (event)=>{
   keys.push(event.keyCode);
   keyList.push(event.keyCode);
@@ -33,3 +34,4 @@ function updateCursorPos(event){
 document.getElementsByClassName("FSb").addEventListener("click", () => {
   canvas.requestFullscreen();
 })
+}

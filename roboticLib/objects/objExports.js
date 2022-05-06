@@ -1,3 +1,3 @@
-export { createBox } from "./createBox";
-export { deleteHitbox } from "./deleteHitbox";
-export { despawn } from "./despawn";
+export { createBox } from "./createBox.js";
+export { deleteHitbox } from "./deleteHitbox.js";
+export { despawn } from "./despawn.js";

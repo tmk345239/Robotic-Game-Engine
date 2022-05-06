@@ -48,3 +48,4 @@ export var cursor = {
 
 export * as func from "./roboticLib/roboticLib.js";//import function
 //rename imported functions
+func.sys.eLisin();
